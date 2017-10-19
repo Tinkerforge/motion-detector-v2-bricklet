@@ -3,7 +3,7 @@
   (general
     (links 53)
     (no_connects 0)
-    (area 42.709499 29.609499 88.090501 54.990501)
+    (area 42.044999 28.944999 282.27147 165.489573)
     (thickness 1.6002)
     (drawings 26)
     (tracks 173)
@@ -23,8 +23,8 @@
   )
 
   (layers
-    (0 Vorderseite jumper)
-    (31 Rückseite jumper)
+    (0 Vorderseite jumper hide)
+    (31 Rückseite jumper hide)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -12266,7 +12266,7 @@
   (gr_line (start 74.175 38.9) (end 72.175 40.05) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 73.125 37.075) (end 74.175 38.9) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 71.125 38.25) (end 73.125 37.075) (angle 90) (layer Edge.Cuts) (width 0.381))
-  (gr_text Status (at 57.3 51.5) (layer F.SilkS)
+  (gr_text status (at 57.3 51.5) (layer F.SilkS)
     (effects (font (size 0.8 0.8) (thickness 0.15)))
   )
   (gr_text "Motion\nDetector\n2.0" (at 48.2 42.3) (layer B.SilkS)
