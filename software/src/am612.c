@@ -45,9 +45,9 @@ void am612_init(void) {
 
 	ccu4_pwm_init(AM612_SENSITIVITY_PIN, AM612_SENSITIVITY_CCU4_SLICE, 400);
 
-	ccu4_pwm_init(LED_RED_PIN,   LED_RED_CCU4_SLICE,   LED_PERIOD_VALUE);
-	ccu4_pwm_init(LED_GREEN_PIN, LED_GREEN_CCU4_SLICE, LED_PERIOD_VALUE);
-	ccu4_pwm_init(LED_BLUE_PIN,  LED_BLUE_CCU4_SLICE,  LED_PERIOD_VALUE);
+	ccu4_pwm_init(LED_TOP_LEFT_PIN,  LED_TOP_LEFT_CCU4_SLICE,  LED_PERIOD_VALUE);
+	ccu4_pwm_init(LED_TOP_RIGHT_PIN, LED_TOP_RIGHT_CCU4_SLICE, LED_PERIOD_VALUE);
+	ccu4_pwm_init(LED_BOTTOM_PIN,    LED_BOTTOM_CCU4_SLICE,    LED_PERIOD_VALUE);
 
 	memset(&am612, 0, sizeof(AM612));
 	am612.sensitivity = 50;
@@ -61,22 +61,22 @@ void am612_tick(void) {
 		logd("AM612: New sens %u\n\r", am612.sensitivity);
 	}
 
-	if(am612.red != am612.red_last) {
-		ccu4_pwm_set_duty_cycle(LED_RED_CCU4_SLICE, am612.red);
-		am612.red_last = am612.red;
-		logd("AM612: New red %u\n\r", am612.red);
+	if(am612.top_left != am612.top_left_last) {
+		ccu4_pwm_set_duty_cycle(LED_TOP_LEFT_CCU4_SLICE, am612.top_left);
+		am612.top_left_last = am612.top_left;
+		logd("AM612: New top_left %u\n\r", am612.top_left);
 	}
 
-	if(am612.green != am612.green_last) {
-		ccu4_pwm_set_duty_cycle(LED_GREEN_CCU4_SLICE, am612.green);
-		am612.green_last = am612.green;
-		logd("AM612: New green %u\n\r", am612.green);
+	if(am612.top_right != am612.top_right_last) {
+		ccu4_pwm_set_duty_cycle(LED_TOP_RIGHT_CCU4_SLICE, am612.top_right);
+		am612.top_right_last = am612.top_right;
+		logd("AM612: New top_right %u\n\r", am612.top_right);
 	}
 
-	if(am612.blue != am612.blue_last) {
-		ccu4_pwm_set_duty_cycle(LED_BLUE_CCU4_SLICE, am612.blue);
-		am612.blue_last = am612.blue;
-		logd("AM612: New blue %u\n\r", am612.blue);
+	if(am612.bottom != am612.bottom_last) {
+		ccu4_pwm_set_duty_cycle(LED_BOTTOM_CCU4_SLICE, am612.bottom);
+		am612.bottom_last = am612.bottom;
+		logd("AM612: New bottom %u\n\r", am612.bottom);
 	}
 
 	bool new_vout = XMC_GPIO_GetInput(AM612_VOUT_PIN);

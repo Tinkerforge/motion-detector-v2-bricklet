@@ -33,13 +33,13 @@ typedef struct {
 	uint8_t sensitivity;
 	uint8_t sensivitity_last;
 
-	uint8_t red;
-	uint8_t green;
-	uint8_t blue;
+	uint8_t top_left;
+	uint8_t top_right;
+	uint8_t bottom;
 
-	uint8_t red_last;
-	uint8_t green_last;
-	uint8_t blue_last;
+	uint8_t top_left_last;
+	uint8_t top_right_last;
+	uint8_t bottom_last;
 } AM612;
 
 void am612_init(void);

@@ -33,8 +33,8 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_GET_MOTION_DETECTED: return get_motion_detected(message, response);
 		case FID_SET_SENSITIVITY: return set_sensitivity(message);
 		case FID_GET_SENSITIVITY: return get_sensitivity(message, response);
-		case FID_SET_COLOR: return set_color(message);
-		case FID_GET_COLOR: return get_color(message, response);
+		case FID_SET_INDICATOR: return set_indicator(message);
+		case FID_GET_INDICATOR: return get_indicator(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
@@ -64,19 +64,19 @@ BootloaderHandleMessageResponse get_sensitivity(const GetSensitivity *data, GetS
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
-BootloaderHandleMessageResponse set_color(const SetColor *data) {
-	am612.red   = data->red;
-	am612.green = data->green;
-	am612.blue  = data->blue;
+BootloaderHandleMessageResponse set_indicator(const SetIndicator *data) {
+	am612.top_left  = data->top_left;
+	am612.top_right = data->top_right;
+	am612.bottom    = data->bottom;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
-BootloaderHandleMessageResponse get_color(const GetColor *data, GetColor_Response *response) {
-	response->header.length = sizeof(GetColor_Response);
-	response->red           = am612.red;
-	response->green         = am612.green;
-	response->blue          = am612.blue;
+BootloaderHandleMessageResponse get_indicator(const GetIndicator *data, GetIndicator_Response *response) {
+	response->header.length = sizeof(GetIndicator_Response);
+	response->top_left      = am612.top_left;
+	response->top_right     = am612.top_right;
+	response->bottom        = am612.bottom;
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }

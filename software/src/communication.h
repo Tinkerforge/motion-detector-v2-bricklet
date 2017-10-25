@@ -59,8 +59,8 @@ void communication_init(void);
 #define FID_GET_MOTION_DETECTED 1
 #define FID_SET_SENSITIVITY 2
 #define FID_GET_SENSITIVITY 3
-#define FID_SET_COLOR 4
-#define FID_GET_COLOR 5
+#define FID_SET_INDICATOR 4
+#define FID_GET_INDICATOR 5
 
 #define FID_CALLBACK_MOTION_DETECTED 6
 #define FID_CALLBACK_DETECTION_CYCLE_ENDED 7
@@ -90,21 +90,21 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t red;
-	uint8_t green;
-	uint8_t blue;
-} __attribute__((__packed__)) SetColor;
+	uint8_t top_left;
+	uint8_t top_right;
+	uint8_t bottom;
+} __attribute__((__packed__)) SetIndicator;
 
 typedef struct {
 	TFPMessageHeader header;
-} __attribute__((__packed__)) GetColor;
+} __attribute__((__packed__)) GetIndicator;
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t red;
-	uint8_t green;
-	uint8_t blue;
-} __attribute__((__packed__)) GetColor_Response;
+	uint8_t top_left;
+	uint8_t top_right;
+	uint8_t bottom;
+} __attribute__((__packed__)) GetIndicator_Response;
 
 typedef struct {
 	TFPMessageHeader header;
@@ -119,8 +119,8 @@ typedef struct {
 BootloaderHandleMessageResponse get_motion_detected(const GetMotionDetected *data, GetMotionDetected_Response *response);
 BootloaderHandleMessageResponse set_sensitivity(const SetSensitivity *data);
 BootloaderHandleMessageResponse get_sensitivity(const GetSensitivity *data, GetSensitivity_Response *response);
-BootloaderHandleMessageResponse set_color(const SetColor *data);
-BootloaderHandleMessageResponse get_color(const GetColor *data, GetColor_Response *response);
+BootloaderHandleMessageResponse set_indicator(const SetIndicator *data);
+BootloaderHandleMessageResponse get_indicator(const GetIndicator *data, GetIndicator_Response *response);
 
 // Callbacks
 bool handle_motion_detected_callback(void);

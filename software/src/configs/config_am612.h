@@ -34,13 +34,13 @@
 
 #define LED_PERIOD_VALUE                255
 
-#define LED_RED_PIN                     P1_1
-#define LED_RED_CCU4_SLICE              1
+#define LED_TOP_LEFT_PIN                P1_2
+#define LED_TOP_LEFT_CCU4_SLICE         2
 
-#define LED_GREEN_PIN                   P1_2
-#define LED_GREEN_CCU4_SLICE            2
+#define LED_TOP_RIGHT_PIN               P1_1
+#define LED_TOP_RIGHT_CCU4_SLICE        1
 
-#define LED_BLUE_PIN                    P1_3
-#define LED_BLUE_CCU4_SLICE             3
+#define LED_BOTTOM_PIN                  P1_3
+#define LED_BOTTOM_CCU4_SLICE           3
 
 #endif
