@@ -393,7 +393,7 @@ L LED D2
 U 1 1 59AEF87D
 P 8650 4500
 F 0 "D2" H 8650 4600 50  0000 C CNN
-F 1 "red_inv" H 8650 4400 50  0000 C CNN
+F 1 "blue_inv" H 8650 4400 50  0000 C CNN
 F 2 "D1206_INV" H 8650 4500 50  0001 C CNN
 F 3 "" H 8650 4500 50  0000 C CNN
 	1    8650 4500
@@ -469,17 +469,17 @@ $EndComp
 Wire Wire Line
 	3150 5900 3150 5800
 Text GLabel 9050 4500 2    60   Input ~ 0
-LED_RED
+LED_TOP_L
 Wire Wire Line
 	8850 4500 9050 4500
 Text GLabel 9050 4800 2    60   Input ~ 0
-LED_GREEN
+LED_TOP_R
 $Comp
 L LED D3
 U 1 1 59AF0F95
 P 8650 4800
 F 0 "D3" H 8650 4900 50  0000 C CNN
-F 1 "green_inv" H 8650 4700 50  0000 C CNN
+F 1 "blue_inv" H 8650 4700 50  0000 C CNN
 F 2 "D1206_INV" H 8650 4800 50  0001 C CNN
 F 3 "" H 8650 4800 50  0000 C CNN
 	1    8650 4800
@@ -508,7 +508,7 @@ F 3 "" H 8650 5100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9050 5100 2    60   Input ~ 0
-LED_BLUE
+LED_BTM
 $Comp
 L R R5
 U 1 1 59AF11A4
@@ -536,11 +536,11 @@ Wire Wire Line
 Wire Wire Line
 	9050 5100 8850 5100
 Text GLabel 3200 4450 0    60   Output ~ 0
-LED_RED
+LED_TOP_L
 Text GLabel 3200 4550 0    60   Output ~ 0
-LED_GREEN
+LED_TOP_R
 Text GLabel 3200 4650 0    60   Output ~ 0
-LED_BLUE
+LED_BTM
 Wire Wire Line
 	2700 4350 3350 4350
 Wire Wire Line
@@ -588,12 +588,8 @@ Wire Wire Line
 	2350 6000 2250 6000
 Wire Wire Line
 	1850 5900 1850 6000
-Text Notes 9550 4500 0    39   ~ 0
-LTST-C230KRKT
 Connection ~ 7850 4500
-Text Notes 9650 4850 0    39   ~ 0
-LTST-C230KGKT
-Text Notes 9600 5150 0    39   ~ 0
+Text Notes 8450 5350 0    39   ~ 0
 LTST-C230TBKT
 Text GLabel 3200 3350 0    60   Input ~ 0
 VOUT
@@ -698,6 +694,4 @@ NoConn ~ 3350 5900
 NoConn ~ 3350 6100
 Wire Wire Line
 	3200 4650 3350 4650
-Text Notes 2700 4250 0    39   ~ 0
-channels shiftet!
 $EndSCHEMATC
