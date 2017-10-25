@@ -43,14 +43,24 @@ void am612_init(void) {
 	};
 	XMC_GPIO_Init(AM612_VOUT_PIN, &vout_pin_config);
 
+	ccu4_pwm_init(AM612_SENSITIVITY_PIN, AM612_SENSITIVITY_CCU4_SLICE, 400);
+
 	ccu4_pwm_init(LED_RED_PIN,   LED_RED_CCU4_SLICE,   LED_PERIOD_VALUE);
 	ccu4_pwm_init(LED_GREEN_PIN, LED_GREEN_CCU4_SLICE, LED_PERIOD_VALUE);
 	ccu4_pwm_init(LED_BLUE_PIN,  LED_BLUE_CCU4_SLICE,  LED_PERIOD_VALUE);
 
 	memset(&am612, 0, sizeof(AM612));
+	am612.sensitivity = 50;
+	am612.sensivitity_last = 255;
 }
 
 void am612_tick(void) {
+	if(am612.sensitivity != am612.sensivitity_last) {
+		ccu4_pwm_set_duty_cycle(AM612_SENSITIVITY_CCU4_SLICE, 300 + am612.sensitivity);
+		am612.sensivitity_last = am612.sensitivity;
+		logd("AM612: New sens %u\n\r", am612.sensitivity);
+	}
+
 	if(am612.red != am612.red_last) {
 		ccu4_pwm_set_duty_cycle(LED_RED_CCU4_SLICE, am612.red);
 		am612.red_last = am612.red;

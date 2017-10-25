@@ -29,7 +29,6 @@
 #include "bricklib2/logging/logging.h"
 #include "communication.h"
 #include "am612.h"
-#include "mcp4018.h"
 
 int main(void) {
 	logging_init();
@@ -37,12 +36,10 @@ int main(void) {
 
 	communication_init();
 	am612_init();
-	mcp4018_init();
 
 	while(true) {
 		bootloader_tick();
 		communication_tick();
 		am612_tick();
-		mcp4018_tick();
 	}
 }

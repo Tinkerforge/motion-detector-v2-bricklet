@@ -24,10 +24,8 @@
 #include "bricklib2/utility/communication_callback.h"
 #include "bricklib2/protocols/tfp/tfp.h"
 
-#include "mcp4018.h"
 #include "am612.h"
 
-extern MCP4018 mcp4018;
 extern AM612 am612;
 
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
@@ -50,18 +48,18 @@ BootloaderHandleMessageResponse get_motion_detected(const GetMotionDetected *dat
 }
 
 BootloaderHandleMessageResponse set_sensitivity(const SetSensitivity *data) {
-	if(data->sensitivity > 127) {
+	if(data->sensitivity > 100) {
 		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
 	}
 
-	mcp4018.value = data->sensitivity;
+	am612.sensitivity = data->sensitivity;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
 BootloaderHandleMessageResponse get_sensitivity(const GetSensitivity *data, GetSensitivity_Response *response) {
 	response->header.length = sizeof(GetSensitivity_Response);
-	response->sensitivity   = mcp4018.value;
+	response->sensitivity   = am612.sensitivity;
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }

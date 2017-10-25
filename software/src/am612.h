@@ -29,6 +29,10 @@ typedef struct {
 	bool vout;
 	bool send_motion_detected;
 	bool send_detection_cycle_ended;
+
+	uint8_t sensitivity;
+	uint8_t sensivitity_last;
+
 	uint8_t red;
 	uint8_t green;
 	uint8_t blue;

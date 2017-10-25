@@ -24,19 +24,23 @@
 
 #include "xmc_gpio.h"
 
-#define AM612_VOUT_PIN          P0_12
-#define AM612_ENABLE_PIN        P0_9
+#define AM612_VOUT_PIN                  P0_12
+#define AM612_ENABLE_PIN                P0_9
 
+#define AM612_SENSITIVITY_PERIOD_VALUE  255
 
-#define LED_PERIOD_VALUE        255
+#define AM612_SENSITIVITY_PIN           P1_0
+#define AM612_SENSITIVITY_CCU4_SLICE    0
 
-#define LED_RED_PIN             P1_0
-#define LED_RED_CCU4_SLICE      0
+#define LED_PERIOD_VALUE                255
 
-#define LED_GREEN_PIN           P1_1
-#define LED_GREEN_CCU4_SLICE    1
+#define LED_RED_PIN                     P1_1
+#define LED_RED_CCU4_SLICE              1
 
-#define LED_BLUE_PIN            P1_2
-#define LED_BLUE_CCU4_SLICE     2
+#define LED_GREEN_PIN                   P1_2
+#define LED_GREEN_CCU4_SLICE            2
+
+#define LED_BLUE_PIN                    P1_3
+#define LED_BLUE_CCU4_SLICE             3
 
 #endif
