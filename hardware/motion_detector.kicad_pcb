@@ -3,7 +3,7 @@
   (general
     (links 53)
     (no_connects 0)
-    (area 42.709499 29.609499 88.090501 54.990501)
+    (area 42.044999 28.944999 282.27147 165.489573)
     (thickness 1.6002)
     (drawings 26)
     (tracks 173)
@@ -23,8 +23,8 @@
   )
 
   (layers
-    (0 Vorderseite jumper hide)
-    (31 Rückseite jumper hide)
+    (0 Vorderseite jumper)
+    (31 Rückseite jumper)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -75,7 +75,7 @@
     (pad_to_mask_clearance 0)
     (aux_axis_origin 42.9 54.8)
     (grid_origin 42.9 54.8)
-    (visible_elements FFFF5F9F)
+    (visible_elements FFFF5FFF)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions true)
@@ -6169,7 +6169,7 @@
     )
   )
 
-  (module kicad-libraries:QFN24-4x4mm-0.5mm (layer Vorderseite) (tedit 590CA070) (tstamp 59AEEC55)
+  (module kicad-libraries:QFN24-4x4mm-0.5mm (layer Vorderseite) (tedit 59F1EDA3) (tstamp 59AEEC55)
     (at 55.7 45.6)
     (tags "QFN 24pin 0.5")
     (path /59AEBB4E)
@@ -6177,7 +6177,7 @@
     (fp_text reference U1 (at 0 -0.4) (layer F.Fab)
       (effects (font (size 0.3 0.3) (thickness 0.075)))
     )
-    (fp_text value XMC1XXX24 (at 0 0.8) (layer F.Fab)
+    (fp_text value XMC110024 (at 0 0.8) (layer F.Fab)
       (effects (font (size 0.3 0.3) (thickness 0.075)))
     )
     (fp_line (start -1 -2) (end 2 -2) (layer F.Fab) (width 0.15))
