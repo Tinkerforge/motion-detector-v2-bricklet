@@ -1,0 +1,40 @@
+Notebook[{
+ Cell[
+  BoxData[{
+   RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}],
+   RowBox[{"LoadNETAssembly", "[", RowBox[{"\"\<Tinkerforge\>\"", ",", RowBox[{RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], "]"}]
+  }], "Input"
+ ],
+ Cell[
+  BoxData[{
+   RowBox[{"host", "=", "\"\<localhost\>\""}],
+   RowBox[{"port", "=", "4223"}],
+   RowBox[{"uid", "=", "\"\<XYZ\>\"", RowBox[{"(*", "Change XYZ to the UID of your Motion Detector Bricklet 2.0", "*)"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Create IPConnection and device object", "*)"}],
+   RowBox[{"ipcon", "=", RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}],
+   RowBox[{"md", "=", RowBox[{"NETNew", "[", RowBox[{"\"\<Tinkerforge.BrickletMotionDetectorV2\>\"", ",", "uid", ",", "ipcon"}], "]"}]}],
+   RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Callback function for motion detected callback", "*)"}],
+   RowBox[{RowBox[{"MotionDetectedCB", "[", "sender_", "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", "\"\<Motion Detected\>\"", "]"}]}],
+   RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"md", "@", "MotionDetectedCallback"}], ",", "MotionDetectedCB"}], "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Callback function for detection cycle ended callback", "*)"}],
+   RowBox[{RowBox[{"DetectionCycleEndedCB", "[", "sender_", "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", "\"\<Detection Cycle Ended (next detection possible in ~2 seconds)\>\"", "]"}]}],
+   RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"md", "@", "DetectionCycleEndedCallback"}], ",", "DetectionCycleEndedCB"}], "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Clean up", "*)"}],
+   RowBox[{"ipcon", "@", RowBox[{"Disconnect", "[", "]"}]}],
+   RowBox[{"ReleaseNETObject", "[", "md", "]"}],
+   RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]
+  }], "Input"
+ ]
+}]

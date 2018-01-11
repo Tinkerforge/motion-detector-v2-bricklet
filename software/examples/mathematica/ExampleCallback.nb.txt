@@ -1,0 +1,28 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Motion Detector Bricklet 2.0*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+md=NETNew["Tinkerforge.BrickletMotionDetectorV2",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Callback function for motion detected callback*)
+MotionDetectedCB[sender_]:=
+ Print["Motion Detected"]
+AddEventHandler[md@MotionDetectedCallback,MotionDetectedCB]
+
+(*Callback function for detection cycle ended callback*)
+DetectionCycleEndedCB[sender_]:=
+ Print["Detection Cycle Ended (next detection possible in ~2 seconds)"]
+AddEventHandler[md@DetectionCycleEndedCallback,DetectionCycleEndedCB]
+
+Input["Click OK to exit"]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[md]
+ReleaseNETObject[ipcon]
