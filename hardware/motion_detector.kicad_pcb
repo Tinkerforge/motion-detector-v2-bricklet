@@ -1,11 +1,11 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.2+dfsg1-stable)
+(kicad_pcb (version 4) (host pcbnew 4.0.7-e2-6376~58~ubuntu17.04.1)
 
   (general
     (links 53)
     (no_connects 0)
-    (area 42.709499 29.609499 88.090501 54.990501)
+    (area 42.044999 28.944999 282.27147 165.489573)
     (thickness 1.6002)
-    (drawings 26)
+    (drawings 30)
     (tracks 173)
     (zones 0)
     (modules 33)
@@ -12259,6 +12259,10 @@
     )
   )
 
+  (gr_line (start 53.6 54.1) (end 53.6 30.5) (angle 90) (layer Dwgs.User) (width 0.381))
+  (gr_line (start 77.2 54.1) (end 53.6 54.1) (angle 90) (layer Dwgs.User) (width 0.381))
+  (gr_line (start 77.2 30.5) (end 77.2 54.1) (angle 90) (layer Dwgs.User) (width 0.381))
+  (gr_line (start 53.6 30.5) (end 77.2 30.5) (angle 90) (layer Dwgs.User) (width 0.381))
   (gr_line (start 42.9 52.3) (end 42.9 32.3) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 85.4 54.8) (end 45.4 54.8) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_arc (start 45.4 52.3) (end 45.4 54.8) (angle 90) (layer Edge.Cuts) (width 0.381))
