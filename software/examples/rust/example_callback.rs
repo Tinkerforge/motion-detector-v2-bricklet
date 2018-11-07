@@ -12,10 +12,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    // Create receiver for motion detected events.
-    let motion_detected_receiver = md.get_motion_detected_receiver();
+    let motion_detected_receiver = md.get_motion_detected_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `md` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `md` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for motion_detected in motion_detected_receiver {
@@ -23,10 +23,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
     });
 
-    // Create receiver for detection cycle ended events.
-    let detection_cycle_ended_receiver = md.get_detection_cycle_ended_receiver();
+    let detection_cycle_ended_receiver = md.get_detection_cycle_ended_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `md` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `md` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for detection_cycle_ended in detection_cycle_ended_receiver {
