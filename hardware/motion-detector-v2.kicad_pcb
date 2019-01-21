@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.1-33cea8e~67~ubuntu18.04.1)
+(kicad_pcb (version 20171130) (host pcbnew 5.0.2-bee76a0~70~ubuntu18.04.1)
 
   (general
     (thickness 1.6002)
@@ -12311,7 +12311,7 @@
   (gr_line (start 74.175 38.9) (end 72.175 40.05) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 73.125 37.075) (end 74.175 38.9) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 71.125 38.25) (end 73.125 37.075) (angle 90) (layer Edge.Cuts) (width 0.381))
-  (gr_text status (at 57.3 51.5) (layer F.SilkS)
+  (gr_text Status (at 57.3 51.5) (layer F.SilkS)
     (effects (font (size 0.8 0.8) (thickness 0.15)))
   )
   (gr_text "Motion\nDetector\n2.0" (at 48.2 42.3) (layer B.SilkS)
@@ -12600,6 +12600,21 @@
         (xy 54.980616 32.681047) (xy 54.603885 32.525) (xy 54.196115 32.525) (xy 53.819384 32.681047) (xy 53.531047 32.969384)
         (xy 53.375 33.346115) (xy 47.671615 33.346115) (xy 47.89903 32.797088) (xy 47.89903 31.802912) (xy 47.518575 30.884413)
         (xy 46.924662 30.2905) (xy 83.875338 30.2905)
+      )
+    )
+  )
+  (zone (net 0) (net_name "") (layer Dwgs.User) (tstamp 5C459B32) (hatch edge 0.508)
+    (connect_pads (clearance 0.2))
+    (min_thickness 0.254)
+    (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 60.9 37.8) (xy 69.9 37.8) (xy 69.9 46.8) (xy 60.9 46.8)
+      )
+    )
+    (filled_polygon
+      (pts
+        (xy 69.773 46.673) (xy 61.027 46.673) (xy 61.027 37.927) (xy 69.773 37.927)
       )
     )
   )
