@@ -1,0 +1,7 @@
+
+
+# Change XYZ to the UID of your Motion Detector Bricklet 2.0
+
+setup:
+	# Turn blue backlight LEDs on (maximum brightness)
+	publish '{"top_left": 255, "top_right": 255, "bottom": 255}' to tinkerforge/request/motion_detector_v2_bricklet/XYZ/set_indicator 

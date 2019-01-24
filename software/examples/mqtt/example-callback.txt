@@ -1,0 +1,11 @@
+
+
+# Change XYZ to the UID of your Motion Detector Bricklet 2.0
+
+setup:
+	# Handle incoming motion detected callbacks
+	subscribe to tinkerforge/callback/motion_detector_v2_bricklet/XYZ/motion_detected
+	publish '{"register": true}' to tinkerforge/register/motion_detector_v2_bricklet/XYZ/motion_detected # Register motion_detected callback
+	# Handle incoming detection cycle ended callbacks
+	subscribe to tinkerforge/callback/motion_detector_v2_bricklet/XYZ/detection_cycle_ended
+	publish '{"register": true}' to tinkerforge/register/motion_detector_v2_bricklet/XYZ/detection_cycle_ended # Register detection_cycle_ended callback
