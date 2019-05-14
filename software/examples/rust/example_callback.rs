@@ -18,7 +18,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // This thread ends when the `md` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
-        for motion_detected in motion_detected_receiver {
+        for _motion_detected in motion_detected_receiver {
             println!("Motion Detected");
         }
     });
@@ -29,7 +29,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // This thread ends when the `md` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
-        for detection_cycle_ended in detection_cycle_ended_receiver {
+        for _detection_cycle_ended in detection_cycle_ended_receiver {
             println!("Detection Cycle Ended (next detection possible in ~2 seconds)");
         }
     });
