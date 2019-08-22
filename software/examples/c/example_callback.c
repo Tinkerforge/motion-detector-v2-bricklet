@@ -40,13 +40,13 @@ int main(void) {
 	// Register motion detected callback to function cb_motion_detected
 	motion_detector_v2_register_callback(&md,
 	                                     MOTION_DETECTOR_V2_CALLBACK_MOTION_DETECTED,
-	                                     (void *)cb_motion_detected,
+	                                     (void (*)(void))cb_motion_detected,
 	                                     NULL);
 
 	// Register detection cycle ended callback to function cb_detection_cycle_ended
 	motion_detector_v2_register_callback(&md,
 	                                     MOTION_DETECTOR_V2_CALLBACK_DETECTION_CYCLE_ENDED,
-	                                     (void *)cb_detection_cycle_ended,
+	                                     (void (*)(void))cb_detection_cycle_ended,
 	                                     NULL);
 
 	printf("Press key to exit\n");
