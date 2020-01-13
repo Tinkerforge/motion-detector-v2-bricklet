@@ -29,5 +29,5 @@ if __name__ == "__main__":
     # Register detection cycle ended callback to function cb_detection_cycle_ended
     md.register_callback(md.CALLBACK_DETECTION_CYCLE_ENDED, cb_detection_cycle_ended)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
