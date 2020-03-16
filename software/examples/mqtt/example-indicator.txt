@@ -2,4 +2,4 @@
 
 setup:
 	# Turn blue backlight LEDs on (maximum brightness)
-	publish '{"top_left": 255, "top_right": 255, "bottom": 255}' to tinkerforge/request/motion_detector_v2_bricklet/XYZ/set_indicator 
+	publish '{"top_left": 255, "top_right": 255, "bottom": 255}' to tinkerforge/request/motion_detector_v2_bricklet/XYZ/set_indicator
