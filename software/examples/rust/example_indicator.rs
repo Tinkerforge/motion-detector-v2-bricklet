@@ -14,7 +14,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                                           // Don't use device before ipcon is connected.
 
     // Turn blue backlight LEDs on (maximum brightness)
-    md.set_indicator(255, 255, 255);
+    md.set_indicator(255, 255, 255).recv()?;
 
     println!("Press enter to exit.");
     let mut _input = String::new();
