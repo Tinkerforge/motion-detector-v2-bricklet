@@ -1,13 +1,9 @@
-
-
 #include "bindings/hal_common.h"
 #include "bindings/bricklet_motion_detector_v2.h"
 
 #define UID "XYZ" // Change XYZ to the UID of your Motion Detector Bricklet 2.0
 
 void check(int rc, const char* msg);
-
-
 
 // Callback function for motion detected callback
 void motion_detected_handler(TF_MotionDetectorV2 *device, void *user_data) {
@@ -22,7 +18,6 @@ void detection_cycle_ended_handler(TF_MotionDetectorV2 *device, void *user_data)
 
 	tf_hal_printf("Detection Cycle Ended (next detection possible in ~2 seconds)\n");
 }
-
 
 TF_MotionDetectorV2 md;
 
