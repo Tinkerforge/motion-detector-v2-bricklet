@@ -25,17 +25,15 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_motion_detector_v2_create(&md, UID, hal), "create device object");
 
-
 	// Register motion detected callback to function motion_detected_handler
 	tf_motion_detector_v2_register_motion_detected_callback(&md,
-	                                                       motion_detected_handler,
-	                                                       NULL);
+	                                                        motion_detected_handler,
+	                                                        NULL);
 
 	// Register detection cycle ended callback to function detection_cycle_ended_handler
 	tf_motion_detector_v2_register_detection_cycle_ended_callback(&md,
-	                                                             detection_cycle_ended_handler,
-	                                                             NULL);
-
+	                                                              detection_cycle_ended_handler,
+	                                                              NULL);
 }
 
 void example_loop(TF_HalContext *hal) {
