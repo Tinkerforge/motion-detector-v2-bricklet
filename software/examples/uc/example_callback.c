@@ -5,21 +5,25 @@
 
 void check(int rc, const char* msg);
 
+void example_setup(TF_HalContext *hal);
+void example_loop(TF_HalContext *hal);
+
+
 // Callback function for motion detected callback
-void motion_detected_handler(TF_MotionDetectorV2 *device, void *user_data) {
+static void motion_detected_handler(TF_MotionDetectorV2 *device, void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
 	tf_hal_printf("Motion Detected\n");
 }
 
 // Callback function for detection cycle ended callback
-void detection_cycle_ended_handler(TF_MotionDetectorV2 *device, void *user_data) {
+static void detection_cycle_ended_handler(TF_MotionDetectorV2 *device, void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
 	tf_hal_printf("Detection Cycle Ended (next detection possible in ~2 seconds)\n");
 }
 
-TF_MotionDetectorV2 md;
+static TF_MotionDetectorV2 md;
 
 void example_setup(TF_HalContext *hal) {
 	// Create device object
