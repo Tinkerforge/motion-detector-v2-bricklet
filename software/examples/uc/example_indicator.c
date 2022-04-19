@@ -9,13 +9,13 @@
 
 void check(int rc, const char* msg);
 
-void example_setup(TF_HalContext *hal);
-void example_loop(TF_HalContext *hal);
+void example_setup(TF_HAL *hal);
+void example_loop(TF_HAL *hal);
 
 
 static TF_MotionDetectorV2 md;
 
-void example_setup(TF_HalContext *hal) {
+void example_setup(TF_HAL *hal) {
 	// Create device object
 	check(tf_motion_detector_v2_create(&md, UID, hal), "create device object");
 
@@ -23,7 +23,7 @@ void example_setup(TF_HalContext *hal) {
 	check(tf_motion_detector_v2_set_indicator(&md, 255, 255, 255), "call set_indicator");
 }
 
-void example_loop(TF_HalContext *hal) {
+void example_loop(TF_HAL *hal) {
 	// Poll for callbacks
 	tf_hal_callback_tick(hal, 0);
 }

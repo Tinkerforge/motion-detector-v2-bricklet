@@ -9,8 +9,8 @@
 
 void check(int rc, const char* msg);
 
-void example_setup(TF_HalContext *hal);
-void example_loop(TF_HalContext *hal);
+void example_setup(TF_HAL *hal);
+void example_loop(TF_HAL *hal);
 
 
 // Callback function for motion detected callback
@@ -29,7 +29,7 @@ static void detection_cycle_ended_handler(TF_MotionDetectorV2 *device, void *use
 
 static TF_MotionDetectorV2 md;
 
-void example_setup(TF_HalContext *hal) {
+void example_setup(TF_HAL *hal) {
 	// Create device object
 	check(tf_motion_detector_v2_create(&md, UID, hal), "create device object");
 
@@ -44,7 +44,7 @@ void example_setup(TF_HalContext *hal) {
 	                                                              NULL);
 }
 
-void example_loop(TF_HalContext *hal) {
+void example_loop(TF_HAL *hal) {
 	// Poll for callbacks
 	tf_hal_callback_tick(hal, 0);
 }
